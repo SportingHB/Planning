@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visualizzatore PDF</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download PDF</title>
 </head>
 <body>
-
-  <header>
-    <h1>Benvenuto al Visualizzatore PDF</h1>
-  </header>
-
-  <div id="pdf-viewer">
-    <canvas id="pdf-canvas"></canvas>
-  </div>
-
-  <div id="controls">
-    <button id="prev" onclick="changePage(-1)">Pagina Precedente</button>
-    <button id="next" onclick="changePage(1)">Pagina Successiva</button>
-    <span id="page-num">Pagina 1</span>
-  </div>
-
-  <footer>
-    <p>Creato con ❤️ su GitHub Pages</p>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-  <script src="script.js"></script>
-
+    <h1>Il tuo PDF è pronto per essere scaricato!</h1>
+    <!-- Link per il download automatico -->
+    <a href="https://github.com/SportingHB/PlanningSP/raw/main/PlanningSP.pdf" download>
+        Clicca qui per scaricare il PDF
+    </a>
 </body>
 </html>
