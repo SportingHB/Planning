@@ -3,53 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanningSP - PDF in Fullscreen</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visualizza PDF</title>
     <style>
+        /* CSS per il layout e la visualizzazione ottimizzata */
         body, html {
-            height: 100%;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
         }
+
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+            display: block;
         }
-        #fullscreen-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
+
+        /* Ottimizzazione per dispositivi mobili */
+        @media (max-width: 600px) {
+            iframe {
+                max-width: 100%;
+                max-height: 100vh;
+            }
         }
     </style>
 </head>
 <body>
-
-    <button id="fullscreen-btn" onclick="toggleFullscreen()">Schermo intero</button>
-    <iframe src="https://github.com/SportingHB/PlanningSP/blob/main/PlanningSP.pdf?raw=true" id="pdf-frame"></iframe>
-
-    <script>
-        function toggleFullscreen() {
-            const iframe = document.getElementById("pdf-frame");
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
-                iframe.msRequestFullscreen();
-            }
-        }
-    </script>
-
+    <iframe src="https://github.com/SportingHB/PlanningSP/raw/main/PlanningSP.pdf" allowfullscreen></iframe>
 </body>
 </html>
