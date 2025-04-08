@@ -1,4 +1,4 @@
-const url = 'https://raw.githubusercontent.com/SportingHB/PlanningSP/main/PlanningSP.pdf';
+const url = 'PlanningSP.pdf';
 
 let pdfDoc = null;
 let currentPage = 1;
