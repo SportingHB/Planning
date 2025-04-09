@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizza PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <style>
         body, html {
             margin: 0;
@@ -15,42 +16,46 @@
         #pdf-container {
             height: 100%;
             width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
         }
     </style>
-    <!-- Aggiungi PDF.js dal CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 </head>
 <body>
     <div id="pdf-container"></div>
 
     <script>
-        // Link del tuo PDF su GitHub (usando raw=true)
-        const pdfUrl = 'https://github.com/SportingHB/PlanningSP/blob/main/PlanningSP.pdf?raw=true';
+        // PDF.js - Carica e visualizza il PDF
+        const url = 'https://github.com/SportingHB/PlanningSP/raw/main/PlanningSP.pdf'; // Usa il PDF raw dal repository GitHub
+
+        const container = document.getElementById('pdf-container');
 
         // Carica il PDF
-        pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
-            const pdfContainer = document.getElementById('pdf-container');
-            
-            // Carica la prima pagina del PDF
+        pdfjsLib.getDocument(url).promise.then(pdf => {
+            // Visualizza la prima pagina
             pdf.getPage(1).then(page => {
-                const scale = 1.5; // Scala del PDF (puoi modificarla)
+                const scale = 1.5;
                 const viewport = page.getViewport({ scale });
 
-                // Crea un elemento canvas per visualizzare la pagina
                 const canvas = document.createElement('canvas');
-                pdfContainer.appendChild(canvas);
-                const context = canvas.getContext('2d');
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
+                container.appendChild(canvas);
 
-                // Rendering della pagina nel canvas
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
                 page.render({
                     canvasContext: context,
                     viewport: viewport
                 });
             });
-        }).catch(error => {
-            console.error('Errore nel caricare il PDF:', error);
         });
     </script>
 </body>
