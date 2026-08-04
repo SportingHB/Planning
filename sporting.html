@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Planning Sporting New Center" />
+    <meta name="theme-color" content="#1a4a9a" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; child-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; frame-ancestors 'none'"
+    />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    />
+    <title>Planning · Sporting New Center</title>
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="stylesheet" href="./css/style.css?v=47" />
+    <script src="./js/security.js?v=47"></script>
+  </head>
+  <body
+    class="viewer theme-sp"
+    data-pdf="./assets/PlanningSP.pdf"
+    data-pdf-name="Planning-Sporting.pdf"
+  >
+    <div class="bg" aria-hidden="true"></div>
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+
+    <header class="topbar topbar--slim">
+      <div class="viewer-bar">
+        <a class="chip-back" href="./index.html" aria-label="Torna alla home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18 9 12l6-6" />
+          </svg>
+        </a>
+        <span class="chip-title">Sporting</span>
+        <span class="chip-page" id="page-label" hidden>1 / 1</span>
+        <a class="chip-dl" id="hdr-dl" href="./assets/PlanningSP.pdf" download="Planning-Sporting.pdf" aria-label="Scarica PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" />
+          </svg>
+          <span>Scarica</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="stage--viewer">
+      <div class="pdf-box pdf-box--native">
+        <div class="loading" id="loading">
+          <div>
+            <div class="ring" role="status" aria-label="Caricamento"></div>
+            <p>Caricamento planning…</p>
+          </div>
+        </div>
+
+        <div class="fallback" id="fallback">
+          <div class="fallback-panel">
+            <h2>Apri il planning</h2>
+            <p data-fallback-msg>
+              Se non si apre, scarica o apri il PDF con un’app esterna.
+            </p>
+            <a class="act act--main" id="fb-dl" href="./assets/PlanningSP.pdf" download="Planning-Sporting.pdf">Scarica PDF</a>
+            <a class="act" id="fb-open" href="./assets/PlanningSP.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+            <a class="act" href="./index.html">Home</a>
+          </div>
+        </div>
+
+        <div class="pdf-scroll" id="pdf-scroll" role="document" aria-label="Planning Sporting New Center"></div>
+      </div>
+    </main>
+
+    <script type="module" src="./js/pdf-viewer.js?v=47"></script>
+  </body>
+</html>
